@@ -1,17 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button,Text,View  } from 'react-native';
+import { StyleSheet, Button,Text,View, Image } from 'react-native';
 export default function App() {
 return (
      <>
     <View style={styles.container}>
 
-      <Text>Pokemon</Text>
+    <Image style={styles.image} source = {require("pictures/title.png")}/>
+
       <StatusBar style="auto" />
        <View style={styles.ball}> 
        <View style={styles.line}>
        <View style={styles.button}>
+       <Text style = {styles.font}>Go</Text>
         <Button 
-        backgroundColor= '#fff'
+        title = 'Go'
+        color = '#fff'        
         position= 'absolute'
         width = '50'
         height= '30'
@@ -119,6 +122,18 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 20,
     left: 130
-  }
+  },
+  image:{ 
+    flex: 1,
+    width: 300,
+    height: 200,
+    resizeMode: 'contain'
+
+},
+
+font:{
+ fontFamily: 'Times New Roman',
+ fontWeight: 'bold'
+}
 
 });
