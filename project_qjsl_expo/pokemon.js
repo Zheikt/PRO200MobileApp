@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button,Text,View, Image } from 'react-native';
+import { StyleSheet, Button,Text,View, Image,ImageBackground } from 'react-native';
 export default function App() {
 return (
      <>
     <View style={styles.container}>
+    <ImageBackground source = {require("pictures/testbackground.jpg")} resizeMode="cover" style={styles.imagebackground}/>
 
     <Image style={styles.image} source = {require("pictures/title.png")}/>
 
@@ -127,6 +128,13 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 300,
     height: 200,
+    resizeMode: 'contain'
+
+},
+imagebackground:{ 
+    flex: 1,
+    width: 320,
+    height: 590,
     resizeMode: 'contain'
 
 },
