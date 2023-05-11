@@ -1,6 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
+import React, {useEffect} from 'react';
 import { StyleSheet, Button,Text,View, Image,ImageBackground } from 'react-native';
+import {Audio} from 'expo-av';
+
 export default function App() {
+
+useEffect(()=>{
+const playSound = async () =>{
+  const soundObj = new Audio.Sound();
+  try {
+    await soundObj.loadAsync(require("mp3/pokemon.mp3"));
+    soundObj.setIsLoopingAsync(true);
+    await soundObj.playAsync();
+  }catch(error){
+    console.warn('Error playing background music:', error);
+  }
+};
+playSound();
+return async () => {
+  const soundObj = new Audio.Sound();
+  await soundObj.stopAsync();
+  await soundObj.unloadAsync(); 
+};
+}, []);
+
+ 
 return (
      <>
     <View style={styles.container}>
@@ -15,7 +39,7 @@ return (
        <Text style = {styles.font}>Go</Text>
         <Button 
         title = 'Go'
-        color = '#fff'        
+        color = '#fff'
         position= 'absolute'
         width = '50'
         height= '30'
@@ -38,11 +62,26 @@ return (
       </View>
     </>
 
-    
+
   );
 
 }
 
+function myAudio(){
+
+const [sound, setSound] = useState('');
+
+  async function bigSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+       require('./mp3/pokemon.mp3')
+    );
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync(); }
+
+}
 
 
 const styles = StyleSheet.create({
