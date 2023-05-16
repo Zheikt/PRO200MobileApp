@@ -8,6 +8,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@viro-community/react-viro": "2.23.0",
+    "@expo/config-plugins": "4.0.16",
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
     "react": "17.0.2",

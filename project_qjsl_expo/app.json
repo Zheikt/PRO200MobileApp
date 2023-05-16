@@ -28,7 +28,13 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "@viro-community/react-viro"
+      "@viro-community/react-viro",
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow Project Q.J.S.L to access your camera"
+        }
+      ]
     ]
   }
 }

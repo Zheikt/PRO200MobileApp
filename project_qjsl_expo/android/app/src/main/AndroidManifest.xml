@@ -1,6 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-xmlns:tools="http://schemas.android.com/tools"
-package="com.projectqjsl.android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.projectqjsl.android">
   <uses-permission android:name="android.permission.CAMERA"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -13,10 +11,13 @@ package="com.projectqjsl.android">
   <uses-feature android:glEsVersion="0x00030000" android:required="false" tools:node="remove" tools:replace="required"/>
   <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" tools:replace="required"/>
   <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" tools:replace="required"/>
+
+  <uses-sdk tools:overrideLibrary="com.viro.renderer"/>
+
   <queries>
     <package android:name="com.google.ar.core"/>
   </queries>
-  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
     <meta-data android:name="com.google.ar.core" android:value="required"/>
     <meta-data android:name="expo.modules.updates.ENABLED" android:value="true"/>
     <meta-data android:name="expo.modules.updates.EXPO_SDK_VERSION" android:value="48.0.0"/>
