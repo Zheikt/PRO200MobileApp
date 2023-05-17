@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import HomePage from './pokemon';
+import HomePage from './components/pokemon.js';
 import ARView from './components/ar-view';
 //import HomePage from './components/pokemon';
 
 export default function App() {
   return (
+    <HomePage/>
     <ARView foundPokemon={[{"name": "Charizard", "id": 9}, {"name": "Blastoise", "id": 6}, {"name": "Venasaur", "id": 3}]} />
   );
 }
