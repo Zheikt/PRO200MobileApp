@@ -53,7 +53,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   public void invokeDefaultOnBackPressed() {
-    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
       if (!moveTaskToBack(false)) {
         // For non-root activities, use the default implementation to finish them.
         super.invokeDefaultOnBackPressed();

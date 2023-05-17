@@ -28,9 +28,9 @@ return async () => {
 return (
      <>
     <View style={styles.container}>
-    <ImageBackground source = {require("pictures/testbackground.jpg")} resizeMode="cover" style={styles.imagebackground}/>
+    <ImageBackground source = {require("./pictures/testbackground.jpg")} resizeMode="cover" style={styles.imagebackground}/>
 
-    <Image style={styles.image} source = {require("pictures/title.png")}/>
+    <Image style={styles.image} source = {require("./pictures/title.png")}/>
 
       <StatusBar style="auto" />
        <View style={styles.ball}> 

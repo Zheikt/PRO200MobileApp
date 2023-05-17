@@ -113,7 +113,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.projectqjslexpo"
+    namespace 'com.projectqjsl.android'
     defaultConfig {
         applicationId 'com.projectqjsl.android'
         minSdkVersion rootProject.ext.minSdkVersion
