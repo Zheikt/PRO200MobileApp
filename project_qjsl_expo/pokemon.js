@@ -171,10 +171,12 @@ const styles = StyleSheet.create({
 
 },
 imagebackground:{ 
-    flex: 1,
-    width: 320,
-    height: 590,
-    resizeMode: 'contain'
+  flex: 1,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  width: '100vw',
+  height: '100vh'
 
 },
 
