@@ -1,28 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
-//import { Audio } from 'expo-av';
+import Sound from 'react-native-sound';
 
 export default function App() {
 
-  // useEffect(() => {
-  //   const playSound = async () => {
-  //     const soundObj = new Audio.Sound();
-  //     try {
-  //       await soundObj.loadAsync(require("mp3/pokemon.mp3"));
-  //       soundObj.setIsLoopingAsync(true);
-  //       await soundObj.playAsync();
-  //     } catch (error) {
-  //       console.warn('Error playing background music:', error);
-  //     }
-  //   };
-  //   playSound();
-  //   return async () => {
-  //     const soundObj = new Audio.Sound();
-  //     await soundObj.stopAsync();
-  //     await soundObj.unloadAsync();
-  //   };
-  // }, []);
+  const sound = new Sound("mp3/homemusic.mp3", Sound.MAIN_BUNDLE, (error)=>{
+if(error){
+    console.log("Error loading sound");
+    }else{
+    console.log("loaded sound");
+    console.log("");
+    }
+    });
+    sound.setNumberOfLoops(-1);
+    sound.play((success)=>{
+    if(success){
+    console.log("audio playing");
+    }else{
+    console.log("audio error")
+    }
+    });
+    sound.stop;
+    sound.release;
 
 
   return (
