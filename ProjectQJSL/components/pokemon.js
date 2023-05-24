@@ -23,8 +23,6 @@ if(error){
     });
     sound.stop;
     sound.release;
-
-
   return (
     <>
       <View style={styles.container}>
@@ -44,6 +42,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
+                onClick = "/components/ar-view"
               />
             </View>
             <View style={styles.ball2}>
