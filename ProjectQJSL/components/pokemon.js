@@ -42,7 +42,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                onClick = "/components/ar-view"
+                android:onClick = "/components/ar-view"
               />
             </View>
             <View style={styles.ball2}>
