@@ -5,6 +5,9 @@ import Sound from 'react-native-sound';
 
 export default function App() {
 
+
+
+
   const sound = new Sound("mp3/homemusic.mp3", Sound.MAIN_BUNDLE, (error)=>{
 if(error){
     console.log("Error loading sound");
@@ -42,7 +45,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                android:onClick = "/components/ar-view"
+                onPress = {() => this.pokeMon.navigation.navigate('/components/ar-view')}
               />
             </View>
             <View style={styles.ball2}>
