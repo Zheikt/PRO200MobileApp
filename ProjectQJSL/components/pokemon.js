@@ -21,7 +21,7 @@ const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
       });
       sound.stop;
       sound.release;
-      
+
 export default function App() {
 
   return (
@@ -43,6 +43,8 @@ export default function App() {
                 height='30'
                 borderRadius='20'
                 left='130'
+                 onPress = {() => this.pokeMon.navigation.navigate('/components/ar-view')}
+
               />
             </View>
             <View style={styles.ball2}>
