@@ -66,7 +66,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                onPress = {() => navigation.navigate('/components/ar-view')}
+                onPress = {() => navigation.navigate('ARView')}
               />
             </View>
             <View style={styles.ball2}>
