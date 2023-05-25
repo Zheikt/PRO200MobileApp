@@ -7,13 +7,15 @@ import {
     ViroARSceneNavigator,
     ViroARPlane,
     ViroNode,
-    ViroButton
+    ViroButton,
+    ViroFlexView
 } from '@viro-community/react-viro';
 
 const POKEDEX_MAX_VISIBLE = 5;
 
 export default function Pokedex() {
     let foundPokemon = foundPokemon=[{"name": "Charizard", "id": 9}, {"name": "Blastoise", "id": 6}, {"name": "Venasaur", "id": 3}]
+    foundPokemon.sort((pkmn1, pkmn2) => pkmn1.id > pkmn2.id ? 1 : pkmn1.id < pkmn2.id ? -1 : 0);
     let pokemonOffset = 0;
     const [pokemon, setPokemon] = useState(foundPokemon.slice(pokemonOffset, POKEDEX_MAX_VISIBLE));
     
@@ -32,17 +34,26 @@ export default function Pokedex() {
     }
 
     return (
-        <ViroNode position={[1, 0, 0]} rotation={[-90, 0, 0]} scale={[5, 5, 5]} transformBehaviors={["billboard"]} onClick={_OnClick} onSwipe={_OnSwipe}>
+        <ViroFlexView position={[0.5, 0, 0]} height={1} width={1} transformBehaviors={["billboard"]} onClick={_OnClick} onSwipe={_OnSwipe}>
             {
                 pokemon.map((pokemon, index) => {
                     if (index < POKEDEX_MAX_VISIBLE) {
                         let pkmnStr = pokemon.id + " - " + pokemon.name;
-                        return (<ViroText key={pokemon.id} text={pkmnStr} position={[0, 4.5 - index, 0]} height={1} ignoreEventHandling={true}/>);
+                        return (<PokedexRow key={pokemon.id} text={pkmnStr} heightOffset={index}/>);
                     }
                 })
             }
             
-        </ViroNode>
+        </ViroFlexView>
     );
 }
 
+function PokedexRow(props){
+    console.log(props);
+    return(
+        <ViroFlexView style={{backgroundColor: "#33333333"}}>
+            <ViroText text={props.text} position={[0, 0.5 - (props.heightOffset * 0.3), 0]} ignoreEventHandling={true}/> 
+            <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} />
+        </ViroFlexView>
+    )
+}

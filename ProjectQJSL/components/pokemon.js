@@ -5,24 +5,24 @@ import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
-  if(error){
-      console.log("Error loading sound");
-      }else{
-      console.log("loaded sound");
-      console.log("");
-      }
-      });
-      sound.setNumberOfLoops(-1);
-      sound.play((success)=>{
-      if(success){
-      console.log("audio playing");
-      }else{
-      console.log("audio error")
-      }
-      });
-      sound.stop;
-      sound.release;
+const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log("Error loading sound");
+  } else {
+    console.log("loaded sound");
+    console.log("");
+  }
+});
+sound.setNumberOfLoops(-1);
+sound.play((success) => {
+  if (success) {
+    console.log("audio playing");
+  } else {
+    console.log("audio error")
+  }
+});
+sound.stop;
+sound.release;
 
 const pokemon => pokeMon(){}
 
@@ -36,17 +36,19 @@ if(error){
     console.log("loaded sound");
     console.log("");
     }
-    });
-    sound.setNumberOfLoops(-1);
-    sound.play((success)=>{
-    if(success){
-    console.log("audio playing");
-    }else{
-    console.log("audio error")
+  });
+
+  sound.setNumberOfLoops(-1);
+  sound.play((success) => {
+    if (success) {
+      console.log("audio playing");
+    } else {
+      console.log("audio error")
     }
-    });
-    sound.stop;
-    sound.release;
+  });
+  sound.stop;
+  sound.release;
+  
   return (
     <>
       <View style={styles.container}>
@@ -58,7 +60,7 @@ if(error){
           <View style={styles.line}>
             <View style={styles.button}>
               <Text style={styles.font}>Go</Text>
-              <Button 
+              <Button
                 title='Go'
                 color='#fff'
                 position='absolute'

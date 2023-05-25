@@ -6,6 +6,9 @@ import {
     ViroConstants,
     ViroARSceneNavigator,
     ViroARPlane,
+    Viro3DObject,
+    ViroFlexView,
+    ViroMaterials
 } from '@viro-community/react-viro';
 //import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
@@ -41,7 +44,11 @@ export default function ARView({props}) {
 function MainScene({props}) {
     return (
         <ViroARScene onTrackingUpdated={onInitialized}>
-            <Pokedex />
+            {/* <Pokedex /> */}
+            <ViroText text="Hello World" />
+            <Viro3DObject source={require("../models/Charizard/pm0006_00_00.obj")} scale={[0.5, 0.5, 0.5]}
+            resources={[require("../models/Charizard/pm0006_00_00.mtl")]}  position={[0,0,-4]}
+            type="OBJ" materials={["body_b", "l_eye", "r_eye", "body_a", "body_b", "fire"]}/>
         </ViroARScene>
     );
 
@@ -55,3 +62,18 @@ function onInitialized(state, reason) {
         // Handle loss of tracking
     }
 }
+
+ViroMaterials.createMaterials({
+    body_b: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_body_b_alb.png")},
+    body_a: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_body_a_alb.png")},
+    r_eye: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_eye_alb.png")},
+    l_eye: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_eye_alb.png")},
+    fire: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_fire_alb.png")}
+})
+
+// ViroMaterials.createMaterials({
+//     body: {"diffuseTexture": require("../models/Charmander/pm0004_00_00_body_alb.png")},
+//     r_eye: {"diffuseTexture": require("../models/Charmander/pm0004_00_00_eye_alb.png")},
+//     l_eye: {"diffuseTexture": require("../models/Charmander/pm0004_00_00_eye_alb.png")},
+//     fire: {"diffuseTexture": require("../models/Charmander/pm0004_00_00_fire_alb.png")}
+// });
