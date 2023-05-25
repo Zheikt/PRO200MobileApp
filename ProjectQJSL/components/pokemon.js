@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
 import Sound from 'react-native-sound';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
   if (error) {
@@ -22,14 +24,17 @@ sound.play((success) => {
 sound.stop;
 sound.release;
 
-export default function App() {
+const pokemon => pokeMon(){}
 
-  const sound = new Sound("mp3/homemusic.mp3", Sound.MAIN_BUNDLE, (error) => {
-    if (error) {
-      console.log("Error loading sound");
-    } else {
-      console.log("loaded sound");
-      console.log("");
+
+export default function App(navigation) {
+
+  const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
+if(error){
+    console.log("Error loading sound");
+    }else{
+    console.log("loaded sound");
+    console.log("");
     }
   });
 
@@ -63,7 +68,7 @@ export default function App() {
                 height='30'
                 borderRadius='20'
                 left='130'
-                onPress={() => this.pokeMon.navigation.navigate('/components/ar-view')}
+                onPress = {() => navigation.navigate('/components/ar-view')}
               />
             </View>
             <View style={styles.ball2}>
