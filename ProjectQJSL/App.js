@@ -6,8 +6,8 @@ import HomePage from './components/pokemon';
 
 export default function App() {
   return (
-    //<HomePage />
-    <ARView />
+    <HomePage />
+    //<ARView />
   );
 }
 

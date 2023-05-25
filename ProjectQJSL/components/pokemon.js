@@ -3,45 +3,47 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
 import Sound from 'react-native-sound';
 
-const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
-  if(error){
-      console.log("Error loading sound");
-      }else{
-      console.log("loaded sound");
-      console.log("");
-      }
-      });
-      sound.setNumberOfLoops(-1);
-      sound.play((success)=>{
-      if(success){
-      console.log("audio playing");
-      }else{
-      console.log("audio error")
-      }
-      });
-      sound.stop;
-      sound.release;
+const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log("Error loading sound");
+  } else {
+    console.log("loaded sound");
+    console.log("");
+  }
+});
+sound.setNumberOfLoops(-1);
+sound.play((success) => {
+  if (success) {
+    console.log("audio playing");
+  } else {
+    console.log("audio error")
+  }
+});
+sound.stop;
+sound.release;
 
 export default function App() {
 
-  const sound = new Sound("mp3/homemusic.mp3", Sound.MAIN_BUNDLE, (error)=>{
-if(error){
-    console.log("Error loading sound");
-    }else{
-    console.log("loaded sound");
-    console.log("");
+  const sound = new Sound("mp3/homemusic.mp3", Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+      console.log("Error loading sound");
+    } else {
+      console.log("loaded sound");
+      console.log("");
     }
-    });
-    sound.setNumberOfLoops(-1);
-    sound.play((success)=>{
-    if(success){
-    console.log("audio playing");
-    }else{
-    console.log("audio error")
+  });
+
+  sound.setNumberOfLoops(-1);
+  sound.play((success) => {
+    if (success) {
+      console.log("audio playing");
+    } else {
+      console.log("audio error")
     }
-    });
-    sound.stop;
-    sound.release;
+  });
+  sound.stop;
+  sound.release;
+  
   return (
     <>
       <View style={styles.container}>
@@ -53,7 +55,7 @@ if(error){
           <View style={styles.line}>
             <View style={styles.button}>
               <Text style={styles.font}>Go</Text>
-              <Button 
+              <Button
                 title='Go'
                 color='#fff'
                 position='absolute'
@@ -61,7 +63,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                onPress = {() => this.pokeMon.navigation.navigate('/components/ar-view')}
+                onPress={() => this.pokeMon.navigation.navigate('/components/ar-view')}
               />
             </View>
             <View style={styles.ball2}>

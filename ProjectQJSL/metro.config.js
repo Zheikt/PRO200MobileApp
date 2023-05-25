@@ -5,6 +5,8 @@
  * @format
  */
 
+const defaultAssetExts = require("metro-config/src/defaults/defaults").assetExts;
+
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -13,5 +15,21 @@ module.exports = {
         inlineRequires: true,
       },
     }),
+  },
+  resolver: {
+    assetExts: [
+      ...defaultAssetExts,
+      "obj",
+      "mtl",
+      "mp3",
+      "JPG",
+      "vrx",
+      "hdr",
+      "gltf",
+      "glb",
+      "bin",
+      "arobject",
+      "gif",
+    ],
   },
 };
