@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
 import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
-import { navigation } from '@react-navigation/native-stack';
+import { navigationCreate } from '@react-navigation/native-stack';
 import {AR} from './components/ar-view';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
@@ -25,8 +25,22 @@ sound.play((success) => {
 sound.stop;
 sound.release;
 
-//const pokemon => pokeMon(){}
+const Stack = navigationCreate();
 
+const MyStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={"./components/pokemon.js"}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen name="ARView" component={AR} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default function App(navigation) {
 
@@ -69,7 +83,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                onPress = {() => navigation.navigate(AR)}
+                onPress = {() => navigation.navigate('ARView')}
               />
             </View>
             <View style={styles.ball2}>
