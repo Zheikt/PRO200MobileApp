@@ -4,6 +4,7 @@ import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-na
 import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
 import { navigation } from '@react-navigation/native-stack';
+import {AR} from './components/ar-view';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
   if (error) {
@@ -68,7 +69,7 @@ if(error){
                 height='30'
                 borderRadius='20'
                 left='130'
-                onPress = {() => navigation.navigate('ARView')}
+                onPress = {() => navigation.navigate(AR)}
               />
             </View>
             <View style={styles.ball2}>
@@ -90,6 +91,9 @@ if(error){
   );
 
 }
+
+
+
 
 // function myAudio() {
 
