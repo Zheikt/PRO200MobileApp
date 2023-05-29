@@ -24,7 +24,7 @@ sound.play((success) => {
 sound.stop;
 sound.release;
 
-const pokemon => pokeMon(){}
+//const pokemon => pokeMon(){}
 
 
 export default function App(navigation) {
