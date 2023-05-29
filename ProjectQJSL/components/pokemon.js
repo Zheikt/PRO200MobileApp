@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
 import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
-import { navigationCreate } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {AR} from './components/ar-view';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
@@ -25,7 +25,7 @@ sound.play((success) => {
 sound.stop;
 sound.release;
 
-const Stack = navigationCreate();
+const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
   return (
