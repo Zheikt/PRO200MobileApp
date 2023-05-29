@@ -8,50 +8,43 @@ import {
     ViroARPlane,
     Viro3DObject,
     ViroFlexView,
-    ViroMaterials
+    ViroMaterials,
+    ViroButton
 } from '@viro-community/react-viro';
-//import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
 import Pokedex from './pokedex';
+import Charizard from './pokemon/charizard';
 
-// let cameraPermission = Platform.OS === 'ios' ? await check(PERMISSIONS.IOS.CAMERA) : 
-//     Platform.OS === 'android' ? await check(PERMISSIONS.ANDROID.CAMERA) : RESULTS.UNAVAILABLE;
-
-export default function ARView({props}) {
-    // if(cameraPermission !== RESULTS.GRANTED && cameraPermission !== RESULTS.UNAVAILABLE){
-    //     if(Platform.OS === 'ios'){
-    //         request(PERMISSIONS.IOS.CAMERA).then((result) => {
-    //             cameraPermission = result;
-    //             switch(result){
-    //                 case RESULTS.DENIED:
-    //                     //close app or try again
-    //                     break;
-    //                 case RESULTS.BLOCKED:
-    //                     //close app
-    //                     break;
-    //                 case RESULTS.GRANTED:
-    //                     //Continue with execution
-    //                     break;
-    //             }
-    //         })
-    //     }
-    // }
+export default function ARView() {
     return (
         <ViroARSceneNavigator autofocus={true} initialScene={{scene: MainScene}} />
     );
 }
 
-function MainScene({props}) {
+function MainScene() {
+    const [pokemonSpawned, setPokemonSpawned] = useState([]);
+    
+    function _onClick(position, source){
+        console.log("Button Clicked!");
+        let newPkmnSpawned = pokemonSpawned.map(x => x);
+        newPkmnSpawned.push(<Charizard scaleX={0.25} scaleY={0.25} scaleZ={0.25} posX={Math.random()} posY={Math.random()} posZ={Math.random()}/>)
+        setPokemonSpawned(newPkmnSpawned);
+    }
+
     return (
         <ViroARScene onTrackingUpdated={onInitialized}>
-            {/* <Pokedex /> */}
+            <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
+                position={[0, 0, 0.25]} scale={[0.25, 0.25, 0.25]} onClick={_onClick}/>
+            {
+                pokemonSpawned
+            }
+            {/* <Pokedex />
             <ViroText text="Hello World" />
             <Viro3DObject source={require("../models/Charizard/pm0006_00_00.obj")} scale={[0.5, 0.5, 0.5]}
             resources={[require("../models/Charizard/pm0006_00_00.mtl")]}  position={[0,0,-4]}
-            type="OBJ" materials={["body_b", "l_eye", "r_eye", "body_a", "body_b", "fire"]}/>
+            type="OBJ" materials={["body_b", "l_eye", "r_eye", "body_a", "body_b", "fire"]}/> */}
         </ViroARScene>
     );
-
 }
 
 function onInitialized(state, reason) {
@@ -63,13 +56,7 @@ function onInitialized(state, reason) {
     }
 }
 
-ViroMaterials.createMaterials({
-    body_b: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_body_b_alb.png")},
-    body_a: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_body_a_alb.png")},
-    r_eye: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_eye_alb.png")},
-    l_eye: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_eye_alb.png")},
-    fire: {"diffuseTexture": require("../models/Charizard/pm0006_00_00_fire_alb.png")}
-})
+
 
 // ViroMaterials.createMaterials({
 //     body: {"diffuseTexture": require("../models/Charmander/pm0004_00_00_body_alb.png")},
