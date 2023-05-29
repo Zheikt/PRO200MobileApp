@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-native';
 import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { navigation } from '@react-navigation/native-stack';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
   if (error) {
