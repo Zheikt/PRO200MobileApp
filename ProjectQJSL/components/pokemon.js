@@ -28,21 +28,7 @@ sound.release;
 
 
 export default function App(navigation) {
-const Stack = createNativeStackNavigator();
-const MyStack = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={"./components/pokemon.js"}
-          options={{title: 'Welcome'}}
-        />
-        <Stack.Screen name="ARView" component={AR} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+
 
   const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
 if(error){
