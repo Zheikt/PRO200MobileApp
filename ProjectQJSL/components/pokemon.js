@@ -25,8 +25,10 @@ sound.play((success) => {
 sound.stop;
 sound.release;
 
-const Stack = createNativeStackNavigator();
 
+
+export default function App(navigation) {
+const Stack = createNativeStackNavigator();
 const MyStack = () => {
   return (
     <NavigationContainer>
@@ -41,8 +43,6 @@ const MyStack = () => {
     </NavigationContainer>
   );
 };
-
-export default function App(navigation) {
 
   const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
 if(error){
