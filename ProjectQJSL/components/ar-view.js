@@ -24,6 +24,8 @@ import Chespin from './pokemon/chespin';
 import Quilladin from './pokemon/quilladin';
 import Chesnaught from './pokemon/chesnaught';
 
+import LabeledButton from './labeledButton';
+
 
 export default function ARView() {
     return (
@@ -35,32 +37,23 @@ export default function ARView() {
 
 function MainScene() {
     const [pokemonSpawned, setPokemonSpawned] = useState([]);
-    const pokemonButtons = [<ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[-0.2, 0, 1]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [-0.2, 0, 1], "name": "Charmander" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[0.2, 0, 1]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [0.2, 0, 1], "name": "Charmeleon" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[0.6, 0, 0.5]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [0.6, 0, 0.5], "name": "Charizard" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[1, 0, 0]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [1, 0, 0], "name": "Mew" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[0.6, 0, -0.5]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [0.6, 0, -0.5], "name": "Oshawott" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[0.2, 0, -1]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [0.2, 0, -1], "name": "Dewott" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[-0.2, 0, -1]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [-0.2, 0, -1], "name": "Samurott" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[-0.6, 0, -0.5]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [-0.6, 0, -0.5], "name": "Chespin" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[-1, 0, 0]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [-1, 0, 0], "name": "Quilladin" })} />,
-    <ViroButton source={require("../pictures/empty-circle.png")} tapSource={require("../pictures/filled-circle.png")} transformBehaviors={["billboard"]}
-        position={[-0.6, 0, 0.5]} scale={[0.25, 0.25, 0.25]} onClick={_onClick.bind({ "position": [-0.6, 0, 0.5], "name": "Chesnaught" })} />
+    const pokemonButtons = [
+    <LabeledButton name="Charmander" position={[-0.4, 0, 2]} _onClick={_onClick.bind({"name":"Charmander", "position":[-0.4, 0, 2]})}/>,
+    <LabeledButton name="Charmeleon" position={[0.4, 0, 2]}  _onClick={_onClick.bind({"name":"Charmeleon", "position":[0.4, 0, 2]})}/>,
+    <LabeledButton name="Charizard" position={[1.2, 0, 1]} _onClick={_onClick.bind({"name":"Charizard", "position":[1.2, 0, 1]})} />,
+    <LabeledButton name="Mew" position={[2, 0, 0]} _onClick={_onClick.bind({"name":"Mew", "position":[2, 0, 0]})} />,
+    <LabeledButton name="Oshawott" position={[1.2, 0, -1]} _onClick={_onClick.bind({"name":"Oshawott", "position":[1.2, 0, -1]})} />,
+    <LabeledButton name="Dewott" position={[0.4, 0, -2]} _onClick={_onClick.bind({"name":"Dewott", "position":[0.4, 0, -2]})} />,
+    <LabeledButton name="Samurott" position={[-0.4, 0, -2]} _onClick={_onClick.bind({"name":"Samurott", "position":[-0.4, 0, -2]})} />,
+    <LabeledButton name="Chespin" position={[-1.2, 0, -1]} _onClick={_onClick.bind({"name":"Chespin", "position":[-1.2, 0, -1]})} />,
+    <LabeledButton name="Quilladin" position={[-2, 0, 0]} _onClick={_onClick.bind({"name":"Quilladin", "position":[-2, 0, 0]})} />,
+    <LabeledButton name="Chesnaught" position={[-1.2, 0, 1]} _onClick={_onClick.bind({"name":"Chesnaught", "position":[-1.2, 0, 1]})} />
     ]
     function _onClick(position, source) {
         console.log("Button Clicked!");
         let newPkmnSpawned = pokemonSpawned.map(x => x);
         let index = newPkmnSpawned.findIndex(pkmn => pkmn['props'].name == this.name);
-        let btnIndex = pokemonButtons.findIndex(btn => btn['props'].position[0] == this.position[0] && btn['props'].position[2] == this.position[2]);
+        let btnIndex = pokemonButtons.findIndex(btn => btn['props'].position[0] == this['position'][0] && btn['props'].position[2] == this['position'][2]);
         if (index == -1) {
             switch (btnIndex) {
                 case 0:
