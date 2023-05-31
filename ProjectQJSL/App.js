@@ -6,18 +6,19 @@ import HomePage from './components/pokemon';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
 const Stack = createNativeStackNavigator();
+
+export default function App() {
+
 const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={"./components/pokemon.js"}
-          options={{title: 'Welcome'}}
+          component={HomePage}
         />
-        <Stack.Screen name="ARView" component={AR} />
+        <Stack.Screen name="ARView" component={ARView} />
       </Stack.Navigator>
     </NavigationContainer>
   );

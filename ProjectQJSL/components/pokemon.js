@@ -4,7 +4,7 @@ import { StyleSheet, Button, Text, View, Image, ImageBackground } from 'react-na
 import Sound from 'react-native-sound';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {AR} from './components/ar-view';
+import AR from './ar-view';
 
 const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error) => {
   if (error) {
@@ -27,7 +27,7 @@ sound.release;
 
 
 
-export default function App(navigation) {
+export default function App({navigation}) {
 
 
   const sound = new Sound("../mp3/pokemon.mp3", Sound.MAIN_BUNDLE, (error)=>{
